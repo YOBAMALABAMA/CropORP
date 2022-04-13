@@ -4,12 +4,168 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crop recommendation</title>
+    <title>crop recommender</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
     <link rel="icon" href="D:\CROPORP\src\img\climate.png" type="image-x/icon">
+    <style>
+        .csv_table{
+            height: 70%;
+            width: 51%;
+            background-color: rgba(124, 124, 124, 0.37);
+            backdrop-filter: blur(2rem);
+            position: absolute;
+            top: 22%;
+            left: 24.5%;
+            border-radius: 20px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.39);
+            font-size: 16px;
+        }
+        .file{
+            position: absolute;
+            top: 13%;
+            left: 28%;
+            color: rgb(0, 0, 0);
+            width: 350px;
+        }
+        input[type=file]::file-selector-button {
+            border: 0;
+            margin: 8px;
+            padding: 10px 16px;
+            border-radius: 20px;
+            background-color: #000000;
+            color: #ffffff;
+            transition: .55s;
+        }
+        input[type=file]::file-selector-button:hover {
+            background-color: #313131;
+            color: #ffffff;
+        }
+        ::-webkit-scrollbar{
+            width: 0px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color:  rgb(0, 0, 0);
+            border-radius: 40px;
+        }
+        ::-webkit-scrollbar-track{
+            background-color: rgb(75, 75, 75);
+        }
+        
+        .search{
+            border: 0;
+            position: absolute;
+            top: 14%;
+            left: 50%;
+            height: 30px;
+            width: 245px;
+            margin: 5px;
+            padding: 8px 10px;
+            border-radius: 20px;
+            background-color: #ffffffb7;
+            backdrop-filter: blur(2rem);
+        }
+        .search-butt{
+            height: 20px;
+            width: 20px;
+            margin: 5px;
+            position: absolute;
+            top: 14%;
+            left: 69%;
+        }
+        .search-butt:hover{
+            transform: scale(1.15);
+        }
+        .right{
+            height: 80vh;
+            width: 35vh;
+            background-color: rgba(0, 0, 0, 0.747);
+            backdrop-filter: blur(2rem);
+            border-radius: 20px;
+            display: flex;
+            align-self: center;
+            align-items: center;
+            justify-content:flex-start;
+            position: fixed;
+            right: 3%;
+            top: 15%;
+        }
+        .minerals{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            width: 100%;
+            position: absolute;
+            top: 8%;
+        }
+        input[type='number']{
+            width: 40px;
+            border: 0;
+            margin: 6px;
+            border-radius: 20px;
+            padding: 2px;
+            background-color: #ffffff10;
+            backdrop-filter: blur(2rem);
+            color: #ffffff;
+        }
+        .ph{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            width: 100%;
+            position: absolute;
+            top: 20%;
+        }
+        .rainfall{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            width: 100%;
+            position: absolute;
+            top: 32%;
+        }
+        .temp-humidity{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 20%;
+            width: 100%;
+            position: absolute;
+            top: 54%;
+            color: #ffffff;
+        }
+        .decision{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20%;
+            width: 100%;
+            position: absolute;
+            top: 80%;
+        }
+        .submit{
+            height: 35px;
+            width: 10vh;
+            background: rgba(255, 255, 255, 0.685);
+            backdrop-filter: blur(10rem);
+            margin: 0%;
+            border: 0ch;
+            border-radius: 20px;
+        }
+       .submit:hover{
+            transform: scale(1.05);
+            opacity: 0.99;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <nav class="nav">
@@ -20,12 +176,132 @@
             <ul>
                 <li><a href="index.html"><h4>Home</h4></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li><a href="about_us.html"><h4>About us</h4></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li><a href="#"><h4>Register</h4></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="login.html"><h4>Register</h4></a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </ul><p></p>
         </div>
     </nav>
-    <form action="" class="form">
 
-    </form>
+    <aside class="left">
+        <div class="aside-container">
+            <div class="aside-header">
+                <h3>Content Table</h3>
+            </div>
+            <div class="aside-main">
+                <ul align='center'>
+                    <li><a href="index.html"><h4>Weather Forecast</h4></a></li>
+                    <li><a href="crop_rec.html"><h4>Crop Recommender</h4></a></li>
+                    <li><a href="fertilizer.html"><h4>Fertilizer Recommender</h4></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    
+
+    <input type="file" class="file">
+    <div class="searchy-search">
+        <input type="search" class="search" placeholder="location">
+        <img src="D:\CROPORP\src\img\search.png" alt="" class="search-butt">
+    </div>
+    
+    <div class="csv_table">
+        <table cellpadding="5" cellspacing="12">
+
+       </table>
+    </div>
+
+   <aside class="right">
+       <form action="">
+           <div class="minerals">
+               <label for="nitrogen">N </label>
+               <input type="number" id="N" required>
+               <label for="phosphorous">P </label>
+               <input type="number" id="P" required>
+               <label for="potasium">K </label>
+               <input type="number" id="K" required>
+           </div>
+
+           <div class="ph">
+            <label for="ph-level">ph level </label>
+            <input type="number" id="ph" required>
+           </div>
+
+           <div class="rainfall">
+            <label for="rainfall">Rainfall </label>
+            <input type="number" id="rainfall" required>
+           </div>
+
+           <div class="temp-humidity"> 
+            <label for="temperature">Temperature </label>
+            <input type="number" id="temperature" >  
+            <p class="temperature">??</p>
+            
+            <label for="humidity">Humidity </label>
+            <input type="number" id="humidity">
+            <p class="humidity">??</p>
+           </div>
+           <div class="decision">
+            <input type="submit" class="submit">
+           </div>
+       </form>
+   </aside>
+
+<script>
+         const x = document.querySelector("input");
+             x.addEventListener("change", () => {
+                const fr = new FileReader();
+                fr.onloadend = e => {
+                    let r = fr.result.split("\n").map(e => {
+                         return e.split(",");
+            });
+             r.forEach(e => {
+                 let m = e.map(e => {
+                    return `<td>${e}</td>`;
+                }).join("");
+            const ce = document.createElement("tr");
+            ce.innerHTML = m;
+
+             if (ce.innerText !== "") {
+                document.querySelector("table").append(ce);
+
+            }
+
+
+        });
+    }
+    fr.readAsText(x.files[0]);
+
+});
+
+let weather = {
+    apiKey: "e9fb52ee27d553cf37e289d86d70b609",
+    fetchWeather: function (city) {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey}`     
+      ) .then((response) => response.json())
+        .then((data) => this.displayWeather(data))
+    },
+    displayWeather: function(data){
+        const {temp , humidity} = data.main
+        document.querySelector(".temperature").innerText = temp + '°C';
+        document.querySelector(".humidity").innerText =  humidity + "%";
+        console.log(name,icon,description,temp,humidity,speed,country)
+    },
+    search: function () {
+      this.fetchWeather(document.querySelector(".search").value);
+    },
+  };
+  
+  document.querySelector(".search-butt").addEventListener("click", function () {
+    weather.search();
+  });
+  
+  document.querySelector(".search").addEventListener("keyup", function(event){
+    if (event.key == "Enter"){ 
+      weather.search()
+    }
+  });
+
+</script>
+
 </body>
 </html>
