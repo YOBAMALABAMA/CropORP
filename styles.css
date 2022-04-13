@@ -5,13 +5,13 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    height:  90vh;
+    height:  80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
-    background-image: url("../../src/img/wallpapersden.com_macos-11-big-sur_2688x1512.jpg");
+    background-image: url("../../src/img/pexels-photo-1323550.webp");
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -31,8 +31,8 @@ nav{
     display: flex;
     justify-content: space-around;
     align-items:center;
-    background-color: rgb(0, 0, 0);
-    backdrop-filter: blur(1rem);
+    background-color: rgba(0, 0, 0, 0.87);
+    backdrop-filter: blur(2rem);
     position: fixed;
     top: 0%;
     left: 0%;
@@ -55,10 +55,15 @@ ul{
     align-items: center;
     cursor: pointer;
 }
-aside{
+.logo a{
+    text-decoration: none;
+    color: aliceblue;
+    word-spacing: 1px;
+}
+.left{
     height: 80vh;
-    width: 30vh;
-    background-color: rgba(0, 0, 0, 0.808);
+    width: 35vh;
+    background-color: rgba(0, 0, 0, 0.747);
     backdrop-filter: blur(2rem);
     border-radius: 20px;
     display: flex;
@@ -69,17 +74,42 @@ aside{
     left: 3%;
     top: 15%;
 }
-.aside-main{
+.aside-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-    width: 30vh;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
 }
 .aside-header{
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    height: 5%;
+    width: 100%;
+}
+.aside-main{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95%;
+    width: 10%;
+}
+.aside-main a{
+    text-decoration: none;
+    color: rgb(179, 179, 179);
+}
+.aside-main ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 18px;
+    width: 100%;
+    height: 80%;
 }
 .glass-container{
     height: 110vh;
@@ -99,13 +129,16 @@ aside{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background:linear-gradient(to right bottom, rgba(51, 51, 51, 0.562),rgba(15, 15, 15, 0.199));
+    background:linear-gradient(to right bottom, rgba(51, 51, 51, 0.397),rgba(15, 15, 15, 0.199));
     backdrop-filter: blur(1rem);
     color:rgba(255, 255, 255, 0.685);
     flex-wrap: wrap;
     min-width: 420px;
     word-spacing: 1px;
-    box-shadow: 2px 2px 3px rgba(36, 35, 35, 0.418);
+    box-shadow: 2px 2px 3px rgba(36, 35, 35, 0.301);
+    position: absolute;
+    top: 27%;
+    left: 35%;
 }
 .search img{
     height: 20px;
@@ -162,7 +195,7 @@ aside{
     letter-spacing: 1.4px;
 }
 .temperature{
-    height: 20vh;
+    height: 10vh;
     width: 50%;
     display: flex;
     justify-content: space-around;
@@ -188,26 +221,6 @@ aside{
 }
 span{
     margin: 5px;
-}
-.submit{
-    width: 60%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.done{
-    height: 5vh;
-    width: 10vh;
-    background: rgba(255, 255, 255, 0.685);
-    backdrop-filter: blur(10rem);
-    margin: 0%;
-    border: 0ch;
-    border-radius: 20px;
-}
-.done:hover{
-    transform: scale(1.05);
-    opacity: 0.99;
-    cursor: pointer;
 }
 ::-webkit-scrollbar{
     width: 10px;
